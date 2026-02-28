@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat WebSocket</title>
+</head>
+<body>
+
+<h2>Chat General</h2>
+
+<div id="chat-messages"></div>
+
+<input type="text" id="messageInput" placeholder="Escribe mensaje">
+<button onclick="sendMessage()">Enviar</button>
+
+<script>
+const chatSocket = new WebSocket(
+    'ws://' + window.location.host + '/ws/chat/general/'
+);
+
+chatSocket.onopen = function() {
+    console.log("✅ Conectado");
+};
+
+chatSocket.onmessage = function(e) {
+    const data = JSON.parse(e.data);
+
+    document.getElementById("chat-messages").innerHTML +=
+        `<p><b>${data.username}</b>: ${data.message}</p>`;
+};
+
+function sendMessage() {
+    const input = document.getElementById("messageInput");
+
+    chatSocket.send(JSON.stringify({
+        message: input.value,
+        username: "Usuario"
+    }));
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>

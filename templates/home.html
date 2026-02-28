@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca UTH - Sistema de Autenticación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-google {
+            background: #4285f4;
+            color: white;
+        }
+        
+        .btn-google:hover {
+            background: #357ae8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(66, 133, 244, 0.4);
+        }
+        
+        .btn-jwt {
+            background: #11998e;
+            color: white;
+        }
+        
+        .btn-jwt:hover {
+            background: #0e8074;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(17, 153, 142, 0.4);
+        }
+        
+        .btn-api {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-api:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .divider {
+            margin: 30px 0;
+            height: 1px;
+            background: #ddd;
+        }
+        
+        .info {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .info h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .info ul {
+            list-style-position: inside;
+            color: #555;
+        }
+        
+        .info li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏛️ Biblioteca UTH</h1>
+        <p class="subtitle">Sistema de Gestión de Biblioteca</p>
+        
+        <!-- Login con Google -->
+        <a href="{% url 'oauth_login' %}" class="btn btn-google">
+            🔐 Login con Google
+        </a>
+        
+        <div class="divider"></div>
+        
+        <!-- Login tradicional con JWT -->
+        <a href="{% url 'jwt_login_page' %}" class="btn btn-jwt">
+            🔑 Login con JWT
+        </a>
+        
+        <div class="divider"></div>
+        
+        <!-- Ver API -->
+        <a href="/api/" class="btn btn-api">
+            📚 Explorar API REST
+        </a>
+        
+        <div class="info">
+            <h3>ℹ️ Información del Sistema</h3>
+            <ul>
+                <li>✅ API REST con Django REST Framework</li>
+                <li>✅ Autenticación JWT</li>
+                <li>✅ OAuth 2.0 con Google</li>
+                <li>✅ MySQL como base de datos</li>
+                <li>✅ Gestión completa de biblioteca</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
